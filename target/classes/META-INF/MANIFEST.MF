@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Implementation-Title: help-maringa
-Implementation-Version: 0.0.1-RELEASE
+Implementation-Version: 0.0.4-RELEASE
 Built-By: gilberto
 Implementation-Vendor-Id: br.com.lgb
 Build-Jdk: 1.8.0_171
