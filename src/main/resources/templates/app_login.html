@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	th:lang="${session.lg}">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Help Maringa">
+    <meta name="author" content="Gilberto Sanches Cruz">
+
+	<title th:utext="#{app.system.title}"></title>
+	
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/assets/bootstrap/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/assets/admin/app_signin.css}" rel="stylesheet">
+</head>
+<body class="text-center small">
+	<form name="formLogin" id="formLogin" th:action="@{/login}" method="POST" class="form-signin">
+		<fieldset>
+			<img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+			<h1 class="h3 mb-3 font-weight-normal"><span th:utext="#{login.title}">Welcome,</span><span id="dt"></span></h1>
+			
+			
+			<div role="alert" th:if="${param.logout}" class="alert alert-info" th:utext="#{login.error.logout}">You have been logged out</div>
+			<div role="alert" th:if="${param.expired}" class="alert alert-info" th:utext="#{login.error.expired}">Your Session has been expired</div>
+			<div role="alert" th:if="${param.error}" class="alert alert-danger" th:utext="#{login.error.login.invalid}">Invalid E-mail and Password</div>
+			<div role="alert" th:if="${cache}" class="alert alert-info">CACHE CLEANED</div>
+			
+			
+			<label for="inputEmail" class="sr-only" th:utext="#{login.email}">Email address</label> 
+			<input type="text" id="username" name="username" class="form-control" th:placeholder="#{login.email}" required autofocus> 
+			
+			<label for="inputPassword" class="sr-only" th:utext="#{login.password}">Password</label> 
+			<input type="password" id="password" name="password" class="form-control" th:placeholder="#{login.password}" required>
+			
+			<div class="checkbox mb-2">
+				<label> 
+					<input type="checkbox" class="form-check-input" value="remember-me"><span th:utext="#{login.rememberme}">Remember me</span>
+				</label>
+			</div>
+			
+			<button class="btn btn-lg btn-primary btn-block" type="submit" th:utext="#{login.bt.signin}">Sign in</button>
+	
+			<p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+		</fieldset>
+	</form>
+</body>
+
+</html>
